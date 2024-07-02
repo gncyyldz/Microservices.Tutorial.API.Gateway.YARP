@@ -26,9 +26,14 @@ builder.Services.AddAuthorization(options =>
 
 var app = builder.Build();
 
+//app.MapGet("/api1", (HttpContext httpContext) =>
+//{
+//    return "API 1 - " + args[0];
+//}).RequireAuthorization("Authenticated");
+
 app.MapGet("/api1", (HttpContext httpContext) =>
 {
-    return "API 1";
-}).RequireAuthorization("Authenticated");
+    return "API 1 - " + args[0];
+});
 
 app.Run();
